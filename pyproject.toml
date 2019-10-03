@@ -10,6 +10,9 @@ pytest = "^3.0"
 "vk.py" = {git = "https://github.com/prostomarkeloff/vk.py"}
 environs = "^6.0"
 pre-commit = "^1.18"
+umongo = "^2.1"
+motor = "^2.0"
+dnspython = "^1.16"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"

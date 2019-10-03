@@ -6,6 +6,7 @@ from vk.utils import TaskManager
 
 from shuecm.config import VK_GROUP_ID
 from shuecm.config import VK_TOKEN
+from shuecm.models.prestart import pre_start as pre_start_db
 
 logging.basicConfig(level="INFO")
 vk = VK(VK_TOKEN)
@@ -17,6 +18,11 @@ async def run():
 
     dp.setup_blueprint(info_bp)
 
+    from shuecm.middlewares import RegistrationMiddleware
+
+    dp.setup_middleware(RegistrationMiddleware())
+
+    pre_start_db(vk.loop)
     dp.run_polling()
 
 
